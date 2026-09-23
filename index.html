@@ -69,6 +69,7 @@ ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 @media (max-width:900px){.wrap{grid-template-columns:1fr;gap:32px;padding-top:32px}.side{position:static}.rules{min-height:0}}
 @media (max-width:600px){.head{grid-template-columns:36px minmax(0,1fr) 20px;gap:14px;padding:18px}.num{width:36px;height:36px}.chip{grid-column:2;justify-self:start;font-size:14px;padding:6px 12px}.chev{grid-row:1;grid-column:3}.body{padding:0 18px 22px}.t{font-size:20px}.msg{max-width:94%}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.mark{max-width:1180px;margin:0 auto;padding:0 24px 40px;text-align:center;color:var(--muted);font-size:14px}.mark span{color:var(--pur)}
 </style>
 </head>
 <body>
@@ -100,6 +101,7 @@ ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
     <p class="foot">Если случай нестандартный, навык предлагает консультацию эксперта и передаёт ему всё собранное. Цифры в примере условные.</p>
   </section>
 </main>
+<footer class="mark">Created for the Tochka team with Claude, bro <span>♥</span></footer>
 <script>
 const B=(t)=>({w:'bot',t}),M=(t)=>({w:'me',t});
 const steps=[
