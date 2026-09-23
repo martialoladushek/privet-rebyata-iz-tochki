@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Логистический консультант: как навык ведёт селлера</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--card:#F6F6F6;--lav:#E4DCFB;--pur:#7745D9;--ink:#191919;--muted:#5C5C5C;--chip:#fff;--bot:#fff;--me:#7745D9;--me-ink:#fff;--bar:#191919;--bar-ink:#fff;--line:#E6E6E6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121212;--card:#1E1E1E;--lav:#2C2350;--pur:#9C74F2;--ink:#F2F2F2;--muted:#A9A9A9;--chip:#2A2A2A;--bot:#2A2A2A;--me:#7745D9;--bar:#F2F2F2;--bar-ink:#121212;--line:#2C2C2C}}
+:root[data-theme="dark"]{--bg:#121212;--card:#1E1E1E;--lav:#2C2350;--pur:#9C74F2;--ink:#F2F2F2;--muted:#A9A9A9;--chip:#2A2A2A;--bot:#2A2A2A;--me:#7745D9;--bar:#F2F2F2;--bar-ink:#121212;--line:#2C2C2C}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:56px 24px 64px;display:grid;grid-template-columns:340px minmax(0,1fr);gap:48px;align-items:start}
+.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 32px);display:flex;flex-direction:column;gap:24px}
+h1{margin:0;font-weight:500;font-size:clamp(40px,5vw,58px);line-height:1.05;letter-spacing:-.02em}
+h1 .hand{font-family:"Caveat",cursive;font-weight:500;font-size:1.2em;letter-spacing:0;margin-right:.12em}
+.sub{margin:0;color:var(--muted);font-size:18px}
+.card{background:var(--card);border-radius:28px;padding:28px}
+.case p{margin:0}
+.case .who{font-weight:500;margin-bottom:6px}
+.case .txt{color:var(--muted);font-size:16px}
+.rules{position:relative;min-height:330px;padding-bottom:150px}
+.rules h2{margin:0 0 14px;font-size:16px;font-weight:500;color:var(--muted)}
+.rules ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.rules li{position:relative;padding-left:20px;font-size:17px;line-height:1.35}
+.rules li::before{content:"";position:absolute;left:0;top:.48em;width:9px;height:9px;border-radius:50%;background:var(--pur)}
+.rules img{position:absolute;right:18px;bottom:18px;width:150px;height:auto}
+.hint{margin:0 0 16px;color:var(--muted);font-size:16px}
+ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.step{background:var(--card);border-radius:24px;transition:background .25s}
+.step.sel{background:var(--lav)}
+.head{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:40px minmax(0,1fr) auto 24px;align-items:center;gap:18px;padding:22px 24px;cursor:pointer;border-radius:24px}
+.head:focus-visible{outline:2px solid var(--pur);outline-offset:3px}
+.num{width:40px;height:40px;border-radius:50%;background:var(--pur);color:#fff;display:grid;place-items:center;font-weight:500;font-size:16px;transition:transform .25s}
+.step:hover .num{transform:scale(1.06)}
+.t{display:block;font-size:22px;font-weight:500;line-height:1.25}
+.s{display:block;color:var(--muted);font-size:16px;margin-top:2px}
+.chip{background:var(--chip);color:var(--pur);font-weight:500;font-size:15px;padding:8px 16px;border-radius:999px;white-space:nowrap}
+.chev{width:24px;height:24px;display:grid;place-items:center}
+.chev::before{content:"";width:9px;height:9px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:translateY(-3px) rotate(45deg);transition:transform .3s}
+.step.open .chev::before{transform:translateY(2px) rotate(225deg)}
+.panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.step.open .panel{grid-template-rows:1fr}
+.inner{min-height:0;overflow:hidden}
+.body{padding:0 24px 26px 82px;display:grid;gap:18px;max-width:760px}
+.does{margin:0}
+.chat{display:grid;gap:8px}
+.msg{max-width:88%;padding:12px 16px;border-radius:20px;font-size:16px;line-height:1.45}
+.bot{background:var(--bot);border-bottom-left-radius:6px;justify-self:start}
+.me{background:var(--me);color:var(--me-ink);border-bottom-right-radius:6px;justify-self:end}
+.who-l{display:block;font-size:13px;font-weight:500;color:var(--pur);margin-bottom:2px}
+.me .who-l{color:#E4DCFB}
+.plan{background:var(--bot);border-radius:20px;padding:16px 18px;font-size:16px}
+.plan b{font-weight:500;display:block;margin-bottom:8px}
+.plan ol{margin:0;padding-left:20px;display:grid;gap:4px}
+.plan .warn{margin:10px 0 0;color:var(--muted)}
+.gets{margin:0;font-size:16px;display:flex;gap:10px;align-items:baseline}
+.gets span{color:var(--muted);white-space:nowrap}
+.final{margin-top:12px;background:var(--bar);color:var(--bar-ink);border-radius:18px;padding:20px 24px;font-weight:500;font-size:18px;text-align:center}
+.foot{margin:18px 0 0;color:var(--muted);font-size:15px}
+.tools{display:flex;justify-content:flex-end;margin:-4px 0 12px}
+.tools button{all:unset;cursor:pointer;color:var(--pur);font-weight:500;font-size:15px;padding:6px 2px;border-radius:6px}
+.tools button:focus-visible{outline:2px solid var(--pur);outline-offset:2px}
+@media (max-width:900px){.wrap{grid-template-columns:1fr;gap:32px;padding-top:32px}.side{position:static}.rules{min-height:0}}
+@media (max-width:600px){.head{grid-template-columns:36px minmax(0,1fr) 20px;gap:14px;padding:18px}.num{width:36px;height:36px}.chip{grid-column:2;justify-self:start;font-size:14px;padding:6px 12px}.chev{grid-row:1;grid-column:3}.body{padding:0 18px 22px}.t{font-size:20px}.msg{max-width:94%}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <aside class="side">
+    <h1>Как навык <span class="hand">ведёт</span>селлера к решению</h1>
+    <p class="sub">ИИ-навык «Логистический консультант» для селлеров Wildberries и Ozon</p>
+    <div class="card case">
+      <p class="who">Пример: селлер Георгий</p>
+      <p class="txt">Продаёт одежду на WB и Ozon, оборот около 2 млн ₽ в месяц, весь товар на складах маркетплейсов. Склад WB перестал принимать поставки.</p>
+    </div>
+    <div class="card rules">
+      <h2>Правила навыка</h2>
+      <ul>
+        <li>Выбор всегда за селлером</li>
+        <li>Цифры только из калькулятора</li>
+        <li>Факты только из базы знаний</li>
+        <li>Все варианты видны, включая самые дешёвые</li>
+        <li>Продукты Точки только после выбора</li>
+      </ul>
+      <img alt="" src="data:image/png;base64,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">
+    </div>
+  </aside>
+  <section aria-label="Шаги навыка">
+    <p class="hint">Нажмите на шаг, чтобы увидеть его на примере Георгия. Справа указано, на что опирается шаг.</p>
+    <div class="tools"><button type="button" id="all">Раскрыть все шаги</button></div>
+    <ol class="steps" id="steps"></ol>
+    <div class="final">Итог: сравнение вариантов, план-чеклист, операторы и бюджет перехода</div>
+    <p class="foot">Если случай нестандартный, навык предлагает консультацию эксперта и передаёт ему всё собранное. Цифры в примере условные.</p>
+  </section>
+</main>
+<script>
+const B=(t)=>({w:'bot',t}),M=(t)=>({w:'me',t});
+const steps=[
+{t:'Диагностика',s:'Выясняет ситуацию селлера',src:'Данные Точки',
+ does:'Задаёт вопросы обычным языком: что случилось, на каких площадках селлер продаёт, есть ли своё помещение и люди, какой бюджет и насколько срочно. То, что Точка уже знает о магазине, навык подтягивает сам и просит только подтвердить.',
+ chat:[B('Вижу, что за месяц у вас около 2 млн ₽ продаж, 70% на Wildberries. На хранение и логистику уходит примерно 18% выручки. Всё верно?'),M('Да.'),B('Есть ли у вас своё помещение для товара или сотрудники, которые могли бы собирать заказы?'),M('Нет, всё на складах WB и Ozon.')],
+ gets:'резюме ситуации, которое можно поправить'},
+{t:'Отбор сценариев',s:'Отсекает неподходящие варианты',src:'Библиотека сценариев',
+ does:'Выбирает из заранее подготовленных сценариев те, что подходят под ситуацию, и объясняет, почему остальные отпали. Самый простой и дешёвый вариант показывается всегда, даже если Точка на нём ничего не заработает.',
+ chat:[B('Вам подходят три варианта: везти товар на другой склад WB, передать хранение и сборку фулфилмент-оператору и работать по FBS, или гибрид. Доставку своими силами не предлагаю: вы продаёте по всей России, а она хорошо работает в пределах одного города.')],
+ gets:'2–4 реальных варианта'},
+{t:'Расчёт',s:'Считает каждый вариант',src:'Калькулятор',
+ does:'Считает калькулятор с формулами, которые задал методолог. Навык передаёт ему данные и пересказывает готовый результат, поэтому цифры не выдумываются. Если данных не хватает, навык подставляет средние по рынку и прямо говорит об этом.',
+ chat:[B('Для варианта с оператором нужны его тарифы. Если своих данных нет, возьму средние по региону: 25 ₽ за хранение единицы в месяц и 45 ₽ за сборку заказа. Подойдёт?'),M('Да, давай так.')],
+ gets:'сравнение расходов, дохода с продажи, сроков доставки, вложений и окупаемости'},
+{t:'Объяснение',s:'Переводит цифры в последствия',src:'Калькулятор',
+ does:'Переводит таблицу на понятный язык: что селлер получит в каждом варианте, чем за это заплатит и насколько это важно для его категории. На вопросы «а что если» отвечает пересчётом через калькулятор.',
+ chat:[B('Работа через оператора избавит от зависимости от складов WB. Зато с каждой продажи вы заработаете примерно на 30 ₽ меньше, а доставка станет дольше на 1–2 дня. Для одежды скорость важна: быстрые товары площадка поднимает выше в поиске.'),M('А если найду оператора за 35 ₽ за сборку?'),B('Тогда разница сократится до 20 ₽ с продажи, а вложения окупятся за 4 месяца вместо 6.')],
+ gets:'понимание цены каждого варианта'},
+{t:'Выбор',s:'Решение принимает сам селлер',src:null,sel:true,
+ does:'Навык не называет лучший вариант и не подталкивает к нему. Он показал цену каждого, выбирает человек. Можно сохранить несколько вариантов и вернуться к сравнению позже.',
+ chat:[M('Беру гибрид.')],
+ gets:'выбранный сценарий'},
+{t:'План перехода',s:'Шаги, документы, сроки',src:'База знаний',
+ does:'Собирает пошаговый план под площадки, категорию и регион селлера: что делать и в каком порядке, какие документы нужны, какие требования к упаковке и маркировке, где чаще всего ошибаются на старте.',
+ plan:{title:'План перехода на гибрид, около 2 недель',items:['Оставить на складах WB самые продаваемые позиции','Выбрать оператора и заключить договор','Настроить работу по FBS в кабинетах WB и Ozon','Перевезти остальной товар оператору','Проверить маркировку «Честный знак»: для одежды она обязательна','Сделать первую отгрузку и проверить статусы заказов'],warn:'Частая ошибка: не обновить остатки на площадках после перевоза товара. Из-за этого появляются отмены и штрафы.'},
+ gets:'план-чеклист в кабинете, шаги можно отмечать'},
+{t:'Подрядчики',s:'Операторы под выбранный сценарий',src:'Витрина операторов',
+ does:'Подбирает фулфилмент-операторов по городу, площадкам и типу товара. Показывает факты, которые знает банк, и отзывы селлеров из Нетворка. Точка не бронирует и не гарантирует услуги оператора, селлер связывается с ним сам.',
+ chat:[B('Нашёл трёх операторов в Московской области, которые работают с одеждой на WB и Ozon. Все клиенты Точки, работают больше трёх лет, долгов и судов нет. Ниже контакты и отзывы селлеров.')],
+ gets:'проверенные подрядчики'},
+{t:'Бюджет перехода',s:'Сумма и способы её закрыть',src:'Продукты Точки',
+ does:'Показывает, сколько денег нужно на переход и когда. Только на этом шаге появляются продукты Точки, и только те, что помогают в ситуации селлера.',
+ chat:[B('На переход понадобится около 150 тыс. ₽: первый месяц услуг оператора, перевоз товара, упаковка. Основные расходы придутся на первую неделю.'),B('Выплата от WB придёт через 9 дней. Если деньги нужны раньше, выручку можно вывести сразу. Для работы по FBS пригодится Единый кабинет: заказы со всех площадок в одной ленте, этикетки печатаются автоматически.')],
+ gets:'бюджет и понятный способ его закрыть'}
+];
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const list=document.getElementById('steps');
+list.innerHTML=steps.map((x,i)=>{
+ let mid='';
+ if(x.chat) mid='<div class="chat">'+x.chat.map(m=>`<div class="msg ${m.w}"><span class="who-l">${m.w==='bot'?'Навык':'Георгий'}</span>${esc(m.t)}</div>`).join('')+'</div>';
+ if(x.plan) mid=`<div class="plan"><b>${esc(x.plan.title)}</b><ol>${x.plan.items.map(p=>`<li>${esc(p)}</li>`).join('')}</ol><p class="warn">${esc(x.plan.warn)}</p></div>`;
+ return `<li class="step${x.sel?' sel':''}">
+ <button class="head" type="button" aria-expanded="false" aria-controls="p${i}">
+  <span class="num">${i+1}</span>
+  <span><span class="t">${esc(x.t)}</span><span class="s">${esc(x.s)}</span></span>
+  ${x.src?`<span class="chip">${esc(x.src)}</span>`:'<span></span>'}
+  <span class="chev" aria-hidden="true"></span>
+ </button>
+ <div class="panel" id="p${i}" role="region"><div class="inner"><div class="body">
+  <p class="does">${esc(x.does)}</p>${mid}
+  <p class="gets"><span>Селлер получает:</span>${esc(x.gets)}</p>
+ </div></div></div></li>`}).join('');
+const items=[...list.querySelectorAll('.step')];
+const set=(li,open)=>{li.classList.toggle('open',open);li.querySelector('.head').setAttribute('aria-expanded',open)};
+const allBtn=document.getElementById('all');
+const sync=()=>{allBtn.textContent=items.every(li=>li.classList.contains('open'))?'Свернуть все шаги':'Раскрыть все шаги'};
+items.forEach(li=>li.querySelector('.head').addEventListener('click',()=>{
+ const willOpen=!li.classList.contains('open');
+ if(willOpen) items.forEach(o=>{if(o!==li)set(o,false)});
+ set(li,willOpen);sync();
+}));
+allBtn.addEventListener('click',()=>{const openAll=!items.every(li=>li.classList.contains('open'));items.forEach(li=>set(li,openAll));sync()});
+</script>
+</body>
+</html>
