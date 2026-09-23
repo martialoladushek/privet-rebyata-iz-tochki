@@ -16,7 +16,7 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1180px;margin:0 auto;padding:56px 24px 64px;display:grid;grid-template-columns:340px minmax(0,1fr);gap:48px;align-items:start}
-.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 32px);display:flex;flex-direction:column;gap:24px}
+.side{display:flex;flex-direction:column;gap:24px}
 h1{margin:0;font-weight:500;font-size:clamp(40px,5vw,58px);line-height:1.05;letter-spacing:-.02em}
 h1 .hand{font-family:"Caveat",cursive;font-weight:500;font-size:1.2em;letter-spacing:0;margin-right:.12em}
 .sub{margin:0;color:var(--muted);font-size:18px}
@@ -30,12 +30,12 @@ h1 .hand{font-family:"Caveat",cursive;font-weight:500;font-size:1.2em;letter-spa
 .case p{margin:0}
 .case .who{font-weight:500;margin-bottom:6px}
 .case .txt{color:var(--muted);font-size:16px}
-.rules{position:relative;min-height:330px;padding-bottom:150px}
+.rules{position:relative}
 .rules h2{margin:0 0 14px;font-size:16px;font-weight:500;color:var(--muted)}
 .rules ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .rules li{position:relative;padding-left:20px;font-size:17px;line-height:1.35}
 .rules li::before{content:"";position:absolute;left:0;top:.48em;width:9px;height:9px;border-radius:50%;background:var(--pur)}
-.rules img{position:absolute;right:18px;bottom:18px;width:150px;height:auto}
+.rules img{display:block;width:150px;height:auto;margin:20px -10px -10px auto}
 .hint{margin:0 0 16px;color:var(--muted);font-size:16px}
 ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .step{background:var(--card);border-radius:24px;transition:background .25s}
@@ -72,7 +72,7 @@ ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .tools{display:flex;justify-content:flex-end;margin:-4px 0 12px}
 .tools button{all:unset;cursor:pointer;color:var(--pur);font-weight:500;font-size:15px;padding:6px 2px;border-radius:6px}
 .tools button:focus-visible{outline:2px solid var(--pur);outline-offset:2px}
-@media (max-width:900px){.wrap{grid-template-columns:1fr;gap:32px;padding-top:32px}.side{position:static}.rules{min-height:0}}
+@media (max-width:900px){.wrap{grid-template-columns:1fr;gap:32px;padding-top:32px}}
 @media (max-width:600px){.head{grid-template-columns:36px minmax(0,1fr) 20px;gap:14px;padding:18px}.num{width:36px;height:36px}.chip{grid-column:2;justify-self:start;font-size:14px;padding:6px 12px}.chev{grid-row:1;grid-column:3}.body{padding:0 18px 22px}.t{font-size:20px}.msg{max-width:94%}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 .mark{max-width:1180px;margin:0 auto;padding:0 24px 40px;text-align:center;color:var(--muted);font-size:14px}.mark span{color:var(--pur)}
@@ -101,7 +101,7 @@ ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px}
     </div>
   </aside>
   <section aria-label="Шаги навыка">
-    <p class="hint">Нажми на шаг, чтобы увидеть его на примере Георгия. Справа указано, на что опирается шаг.</p>
+    <p class="hint">Нажми на шаг, чтобы увидеть его на примере Георгия. Справа указано, на что опирается шаг: наведи на плашку, чтобы увидеть подробности.</p>
     <div class="tools"><button type="button" id="all">Раскрыть все шаги</button></div>
     <ol class="steps" id="steps"></ol>
     <div class="final">Итог: сравнение вариантов, план-чеклист, операторы и бюджет перехода</div>
